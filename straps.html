@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Straps — alug</title>
+<meta name="description" content="Watch straps filterable by lug width, material and price. Leather, suede, FKM rubber, sailcloth and NATO — 18mm to 26mm including 21mm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/alug.css?v=7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23191715'/%3E%3Ctext x='31' y='43' font-family='sans-serif' font-size='32' font-weight='600' text-anchor='middle' fill='%23F2EEE6'%3Ea%3Ctspan fill='%23C4562A'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body data-page="straps">
+<div id="hdr"></div>
+
+<section class="section-tight">
+  <div class="wrap">
+    <p class="kicker">The wardrobe</p>
+    <h1>Straps</h1>
+    <p class="lede">Every strap quick-release, every width honest, every spring bar double-shouldered. Filter like a person who knows their lug width — because you're about to be one.</p>
+  </div>
+</section>
+
+<section style="padding-bottom:60px">
+  <div class="wrap">
+    <div class="shop-layout">
+      <aside class="filters" aria-label="Filters">
+        <div class="fgroup">
+          <h4>Fit family</h4>
+          <div class="chiprow" id="family-chips"></div>
+        </div>
+        <div class="fgroup">
+          <h4>Lug width</h4>
+          <div class="chiprow" id="lug-chips"></div>
+        </div>
+        <div class="fgroup">
+          <h4>Material</h4>
+          <div id="mat-checks"></div>
+        </div>
+        <div class="fgroup">
+          <h4>Price</h4>
+          <select onchange="setMaxPrice(this.value)" aria-label="Maximum price">
+            <option value="">Any price</option>
+            <option value="2500">Under ₹2,500</option>
+            <option value="4000">Under ₹4,000</option>
+            <option value="5000">Under ₹5,000</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <h4>Lost?</h4>
+          <a class="btn ghost sm" href="watches.html">Find by watch model →</a>
+        </div>
+      </aside>
+      <div>
+        <div class="active-watch-note" id="watch-note" style="display:none"></div>
+        <div class="toolbar">
+          <span class="count" id="result-count"></span>
+          <select onchange="setSort(this.value)" aria-label="Sort">
+            <option value="featured">Featured</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+          </select>
+        </div>
+        <div class="grid grid-3" id="strap-grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="ftr"></div>
+<script src="js/data.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+</body>
+</html>
