@@ -132,9 +132,15 @@ All product imagery is **generated SVG** — replaced by photography at launch. 
 - Cart persists in localStorage under `alug-cart` — clear it when demoing.
 - To demo: `python3 -m http.server 4173` in repo root → http://localhost:4173.
 - Project CLAUDE.md now exists at `.claude/CLAUDE.md` — enforces brand/catalog/legal rules for future sessions.
-- **Priority for next session:** (1) `git init` the repo — it's unversioned and valuable, (2) KP reviews the full vintage atelier prototype and gives design lock, (3) lug width manufacturer verification before any public launch.
+- **Priority for next session:** (1) ~~`git init` the repo~~ ✅ done, (2) KP reviews the full vintage atelier prototype and gives design lock, (3) lug width manufacturer verification before any public launch, (4) ~~deployment~~ ✅ live at alug.co.in via GitHub Pages.
 - Asset cache version is `?v=7` — bump in all 10 HTML files whenever CSS/JS changes.
 
 ## §10 Deployment
 
-Not deployed. No pm2/Tailscale (this is a public-web project, not a home-server plugin). Deployment target TBD: static host (Vercel/Netlify/Cloudflare Pages) is the natural fit for the prototype; revisit when checkout is real.
+- **Live at:** https://alug.co.in (and http://alug.co.in, www.alug.co.in)
+- **Host:** GitHub Pages (free), repo: github.com/kanwarpalss/alug (public)
+- **Auto-deploy:** every push to `main` branch goes live within ~1-2 minutes
+- **Domain:** alug.co.in on GoDaddy, DNS A records → GitHub Pages IPs, CNAME `www` → kanwarpalss.github.io
+- **SSL:** GitHub-provisioned, HTTPS enforced
+- **Local preview:** `python3 -m http.server 4173` in repo root → http://localhost:4173
+- **No build step.** GitHub serves the repo files directly.
