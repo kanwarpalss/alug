@@ -559,14 +559,14 @@ function heroWatchSVG() {
     <text x="190" y="252" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="13" letter-spacing="0.5"><tspan fill="#C4562A" font-weight="300">a</tspan><tspan fill="#2A241B" font-weight="600">1u9</tspan></text>
     <text x="190" y="322" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7.5" letter-spacing="2" fill="#6C6252">HAND-WOUND · 21 JEWELS</text>
     <g id="hero-hour-hand" transform="rotate(0 190 280)">
-      <line x1="190" y1="280" x2="155.4" y2="256.2" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
+      <line x1="190" y1="280" x2="190" y2="238" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
     </g>
     <g id="hero-minute-hand" transform="rotate(0 190 280)">
-      <line x1="190" y1="280" x2="241.8" y2="242.4" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
+      <line x1="190" y1="280" x2="190" y2="216" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
     </g>
     <g id="hero-second-hand" transform="rotate(0 190 280)">
-      <line x1="199" y1="264.4" x2="155" y2="340.6" stroke="#C4562A" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="199" cy="264.4" r="4" fill="#C4562A"/>
+      <line x1="190" y1="298" x2="190" y2="210" stroke="#C4562A" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="190" cy="298" r="4" fill="#C4562A"/>
     </g>
     <circle cx="190" cy="280" r="5.5" fill="#2A241B"/>
     <circle cx="190" cy="280" r="2.5" fill="#C4562A"/>
