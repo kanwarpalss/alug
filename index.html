@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>alug — opening soon</title>
+<meta name="description" content="alug — hand-finished watch straps, watch art and paper goods for mechanical watches. different straps for different wrists. Opening soon in India.">
+<meta name="theme-color" content="#F3EDE1">
+<link rel="canonical" href="https://alug.co.in/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Fraunces:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23191715'/%3E%3Ctext x='31' y='43' font-family='sans-serif' font-size='32' font-weight='600' text-anchor='middle' fill='%23F2EEE6'%3Ea%3Ctspan fill='%23C4562A'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --paper: #F3EDE1;
+    --paper-deep: #EAE2CF;
+    --ink: #2A241B;
+    --sub: #6C6252;
+    --faint: #988D79;
+    --line: #DDD4C0;
+    --line-strong: #C8BCA2;
+    --green: #24423A;
+    --green-cream: #EFE7D4;
+    --orange: #C4562A;
+    --orange-deep: #BA5227;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: radial-gradient(120% 90% at 50% 10%, #F6F1E6 0%, var(--paper) 62%);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--orange); color: #fff; }
+  svg { display: block; max-width: 100%; }
+
+  /* ---------- wordmark (locked recipe v3 rev b — the dial) ---------- */
+  .logo {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    user-select: none;
+  }
+  .logo .l-a {
+    display: inline-block;
+    font-weight: 300;
+    color: var(--orange);
+    transform: skewX(-10deg);
+    margin-right: -0.02em;
+  }
+  .logo .l-w { font-weight: 600; }
+  .logo .l-1 {
+    display: inline-block;
+    clip-path: inset(-0.2em -0.05em -0.2em 0.07em);
+  }
+  .logo .l-9 {
+    display: inline-block;
+    font-size: 0.82em;
+    font-weight: 600;
+    vertical-align: -0.08em;
+  }
+  .logo .l-bar {
+    position: absolute;
+    left: 68%;
+    bottom: -0.045em;
+    transform: translateX(-50%);
+    width: 33%;
+    height: 0.054em;
+    border-radius: 99px;
+    background: var(--orange-deep);
+  }
+  .logo .l-bar i {
+    position: absolute;
+    top: 50%;
+    width: 0.1em;
+    height: 0.1em;
+    border-radius: 50%;
+    background: var(--orange-deep);
+  }
+  .logo .bt-l { left: -0.06em; transform: translate(-100%, -50%); }
+  .logo .bt-r { right: -0.06em; transform: translate(100%, -50%); }
+
+  /* ---------- composition ---------- */
+  .stage {
+    position: relative;
+    min-height: calc(100svh - 46px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px 34px;
+    gap: 0;
+  }
+  .rings { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .rings i {
+    position: absolute;
+    left: 50%; top: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .rings .r1 { width: 94vmin; height: 94vmin; border: 1px solid var(--line); opacity: 0.55; }
+  .rings .r2 {
+    width: 78vmin; height: 78vmin;
+    border: 1.5px dashed var(--line-strong);
+    opacity: 0.4;
+    animation: turn 210s linear infinite;
+  }
+  @keyframes turn { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .stage > * { position: relative; }
+
+  .mark { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .mark .logo { font-size: clamp(46px, 7vw, 72px); }
+
+  .art {
+    margin: 3.2svh 0 3svh;
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  }
+  .art svg {
+    height: clamp(300px, 44svh, 460px);
+    width: auto;
+    margin: 0 auto;
+  }
+  .sweep {
+    transform-box: view-box;
+    transform-origin: 190px 280px;
+    animation: sweepturn 60s linear infinite;
+  }
+  @keyframes sweepturn { to { transform: rotate(360deg); } }
+
+  .word { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
+  .tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(17px, 2.3vw, 22px);
+    color: var(--ink);
+  }
+  .springbar {
+    position: relative;
+    width: 64px;
+    height: 3px;
+    border-radius: 99px;
+    background: var(--orange-deep);
+    margin: 26px auto 22px;
+  }
+  .springbar i {
+    position: absolute;
+    top: 50%;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--orange-deep);
+  }
+  .springbar .bt-l { left: -9px; transform: translateY(-50%); }
+  .springbar .bt-r { right: -9px; transform: translateY(-50%); }
+  .soon {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.44em;
+    text-indent: 0.44em; /* recentres letterspaced caps */
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .micro {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--sub);
+    letter-spacing: 0.02em;
+  }
+  .micro b { font-weight: 500; color: var(--ink); }
+  .micro .dot { color: var(--orange); padding: 0 7px; }
+  .est {
+    margin-top: 7px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ---------- green band ---------- */
+  .band {
+    height: 46px;
+    background: var(--green);
+    color: var(--green-cream);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .band .track {
+    display: flex;
+    gap: 34px;
+    width: max-content;
+    white-space: nowrap;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    animation: slide 46s linear infinite;
+  }
+  .band .track span { display: inline-block; }
+  .band .track .sep { color: var(--orange); }
+
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rings .r2, .sweep, .band .track { animation: none; }
+    .mark, .art, .word { animation-duration: 0.01s; animation-delay: 0s; }
+  }
+
+  @media (max-width: 480px) {
+    .stage { padding: 30px 18px 26px; }
+    .art { margin: 2.6svh 0 2.4svh; }
+    .art svg { height: clamp(260px, 40svh, 400px); }
+    .micro .dot { padding: 0 5px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="stage">
+  <div class="rings" aria-hidden="true"><i class="r1"></i><i class="r2"></i></div>
+
+  <div class="mark">
+    <span class="logo" aria-label="alug"><span class="l-a">a</span><span class="l-w"><span class="l-1">1</span>u<span class="l-9">9</span></span><span class="l-bar"><i class="bt-l"></i><i class="bt-r"></i></span></span>
+  </div>
+
+  <figure class="art">
+    <svg viewBox="0 0 380 570" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated mechanical watch on a chestnut alug strap, hands at ten past ten, seconds hand sweeping">
+      <circle cx="190" cy="280" r="172" fill="none" stroke="#DDD4C0" stroke-width="1"/>
+      <ellipse cx="190" cy="556" rx="86" ry="8" fill="#2A241B" opacity="0.08"/>
+      <rect x="154" y="-8" width="72" height="160" rx="10" fill="#8B5A2B"/>
+      <line x1="161" y1="8" x2="161" y2="146" stroke="#EDE3D0" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <line x1="219" y1="8" x2="219" y2="146" stroke="#EDE3D0" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <rect x="150" y="58" width="80" height="14" rx="5" fill="#6E4522"/>
+      <rect x="142" y="150" width="18" height="28" rx="5" fill="#8F887A"/>
+      <rect x="220" y="150" width="18" height="28" rx="5" fill="#8F887A"/>
+      <line x1="152" y1="158" x2="228" y2="158" stroke="#C8BCA2" stroke-width="3"/>
+      <circle cx="148" cy="158" r="3" fill="#C4562A"/>
+      <circle cx="232" cy="158" r="3" fill="#C4562A"/>
+      <circle cx="190" cy="280" r="105" fill="#A29A88"/>
+      <circle cx="190" cy="280" r="96" fill="#24423A"/>
+      <g id="bezel"></g>
+      <path d="M 184 190 L 196 190 L 190 200 Z" fill="#EFE7D4"/>
+      <circle cx="190" cy="280" r="78" fill="#F3EDE1"/>
+      <circle cx="190" cy="280" r="71" fill="none" stroke="#C8BCA2" stroke-width="1" stroke-dasharray="1.5 3.5"/>
+      <g id="indices"></g>
+      <text x="190" y="252" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="13" letter-spacing="0.5"><tspan fill="#C4562A" font-weight="300">a</tspan><tspan fill="#2A241B" font-weight="600">1u9</tspan></text>
+      <text x="190" y="322" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7.5" letter-spacing="2" fill="#6C6252">HAND-WOUND · 21 JEWELS</text>
+      <line x1="190" y1="280" x2="155.4" y2="256.2" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
+      <line x1="190" y1="280" x2="241.8" y2="242.4" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
+      <g class="sweep">
+        <line x1="199" y1="264.4" x2="155" y2="340.6" stroke="#C4562A" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="199" cy="264.4" r="4" fill="#C4562A"/>
+      </g>
+      <circle cx="190" cy="280" r="5.5" fill="#2A241B"/>
+      <circle cx="190" cy="280" r="2.5" fill="#C4562A"/>
+      <rect x="294" y="270" width="17" height="20" rx="5" fill="#A29A88"/>
+      <line x1="299" y1="272" x2="299" y2="288" stroke="#7E7668" stroke-width="1.5"/>
+      <line x1="304" y1="272" x2="304" y2="288" stroke="#7E7668" stroke-width="1.5"/>
+      <rect x="142" y="382" width="18" height="28" rx="5" fill="#8F887A"/>
+      <rect x="220" y="382" width="18" height="28" rx="5" fill="#8F887A"/>
+      <line x1="152" y1="402" x2="228" y2="402" stroke="#C8BCA2" stroke-width="3"/>
+      <circle cx="148" cy="402" r="3" fill="#C4562A"/>
+      <circle cx="232" cy="402" r="3" fill="#C4562A"/>
+      <path d="M 154 410 L 226 410 L 219 560 L 161 560 Z" fill="#8B5A2B"/>
+      <line x1="162" y1="418" x2="167" y2="552" stroke="#EDE3D0" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <line x1="218" y1="418" x2="213" y2="552" stroke="#EDE3D0" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <circle cx="190" cy="474" r="4.5" fill="#5E3A1B"/>
+      <circle cx="190" cy="500" r="4.5" fill="#5E3A1B"/>
+      <circle cx="190" cy="526" r="4.5" fill="#5E3A1B"/>
+    </svg>
+  </figure>
+
+  <div class="word">
+    <p class="tagline">different straps for different wrists.</p>
+    <div class="springbar" aria-hidden="true"><i class="bt-l"></i><i class="bt-r"></i></div>
+    <p class="soon">Opening soon</p>
+    <p class="micro"><b>hand-finished straps</b><span class="dot">·</span><b>watch art</b><span class="dot">·</span><b>paper goods</b></p>
+    <p class="est">for mechanical watches · India · MMXXVI</p>
+  </div>
+</main>
+
+<div class="band" aria-hidden="true">
+  <div class="track" id="track"></div>
+</div>
+
+<script>
+  // dial furniture — indices + bezel ticks (same geometry as the site hero)
+  (function () {
+    let idx = "", bez = "";
+    for (let i = 0; i < 12; i++) {
+      const a = i * Math.PI / 6;
+      const r1 = i % 3 === 0 ? 58 : 61, sw = i % 3 === 0 ? 5 : 3;
+      idx += '<line x1="' + (190 + r1 * Math.sin(a)) + '" y1="' + (280 - r1 * Math.cos(a)) +
+             '" x2="' + (190 + 70 * Math.sin(a)) + '" y2="' + (280 - 70 * Math.cos(a)) +
+             '" stroke="#2A241B" stroke-width="' + sw + '"/>';
+      bez += '<line x1="' + (190 + 84 * Math.sin(a)) + '" y1="' + (280 - 84 * Math.cos(a)) +
+             '" x2="' + (190 + 91 * Math.sin(a)) + '" y2="' + (280 - 91 * Math.cos(a)) +
+             '" stroke="#EFE7D4" stroke-width="2.5"/>';
+    }
+    document.getElementById("indices").innerHTML = idx;
+    document.getElementById("bezel").innerHTML = bez;
+
+    const items = [
+      "opening soon", "different straps for different wrists",
+      "NO APPLE WATCHES HERE", "hand-wound welcome",
+      "measured in millimetres", "obsessed over in microns"
+    ];
+    const half = items.map(t => "<span>" + t + "</span><span class='sep'>·</span>").join("");
+    document.getElementById("track").innerHTML = half + half;
+  })();
+</script>
+
+</body>
+</html>
