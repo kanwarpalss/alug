@@ -558,10 +558,16 @@ function heroWatchSVG() {
     ${idx}
     <text x="190" y="252" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="13" letter-spacing="0.5"><tspan fill="#C4562A" font-weight="300">a</tspan><tspan fill="#2A241B" font-weight="600">1u9</tspan></text>
     <text x="190" y="322" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7.5" letter-spacing="2" fill="#6C6252">HAND-WOUND · 21 JEWELS</text>
-    <line x1="190" y1="280" x2="155.4" y2="256.2" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
-    <line x1="190" y1="280" x2="241.8" y2="242.4" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
-    <line x1="199" y1="264.4" x2="155" y2="340.6" stroke="#C4562A" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="199" cy="264.4" r="4" fill="#C4562A"/>
+    <g id="hero-hour-hand" transform="rotate(0 190 280)">
+      <line x1="190" y1="280" x2="155.4" y2="256.2" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
+    </g>
+    <g id="hero-minute-hand" transform="rotate(0 190 280)">
+      <line x1="190" y1="280" x2="241.8" y2="242.4" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g id="hero-second-hand" transform="rotate(0 190 280)">
+      <line x1="199" y1="264.4" x2="155" y2="340.6" stroke="#C4562A" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="199" cy="264.4" r="4" fill="#C4562A"/>
+    </g>
     <circle cx="190" cy="280" r="5.5" fill="#2A241B"/>
     <circle cx="190" cy="280" r="2.5" fill="#C4562A"/>
     <rect x="294" y="270" width="17" height="20" rx="5" fill="#A29A88"/>
@@ -632,6 +638,24 @@ function artCard(a) {
 function initHome() {
   const ha = document.getElementById("hero-art");
   if (ha) ha.innerHTML = heroWatchSVG();
+  // live watch time — smooth mechanical sweep
+  const updateHeroHands = () => {
+    const now = new Date();
+    const ms = now.getMilliseconds();
+    const s = now.getSeconds() + ms / 1000;
+    const m = now.getMinutes() + s / 60;
+    const h = (now.getHours() % 12) + m / 60;
+
+    const hh = document.getElementById("hero-hour-hand");
+    const mh = document.getElementById("hero-minute-hand");
+    const sh = document.getElementById("hero-second-hand");
+    if (hh) hh.setAttribute("transform", `rotate(${h * 30} 190 280)`);
+    if (mh) mh.setAttribute("transform", `rotate(${m * 6} 190 280)`);
+    if (sh) sh.setAttribute("transform", `rotate(${s * 6} 190 280)`);
+
+    requestAnimationFrame(updateHeroHands);
+  };
+  updateHeroHands();
   const featured = ["colaba-chestnut", "curve-sail-grey", "bond-stripe", "prx-rubber-black"].map(id => STRAPS.find(s => s.id === id));
   document.getElementById("featured-grid").innerHTML = featured.map(strapCard).join("");
   const picks = ["seamaster300", "speedmaster", "bb58", "hydroconquest", "prx", "spb143"].map(id => WATCHES.find(w => w.id === id));
