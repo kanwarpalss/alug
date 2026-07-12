@@ -212,7 +212,7 @@
   @keyframes slide { to { transform: translateX(-50%); } }
 
   @media (prefers-reduced-motion: reduce) {
-    .rings .r2, .sweep, .band .track { animation: none; }
+    .rings .r2, .band .track { animation: none; }
     .mark, .art, .word { animation-duration: 0.01s; animation-delay: 0s; }
   }
 
@@ -255,9 +255,13 @@
       <g id="indices"></g>
       <text x="190" y="252" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="13" letter-spacing="0.5"><tspan fill="#C4562A" font-weight="300">a</tspan><tspan fill="#2A241B" font-weight="600">1u9</tspan></text>
       <text x="190" y="322" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="7.5" letter-spacing="2" fill="#6C6252">HAND-WOUND · 21 JEWELS</text>
-      <line x1="190" y1="280" x2="155.4" y2="256.2" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
-      <line x1="190" y1="280" x2="241.8" y2="242.4" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
-      <g class="sweep">
+      <g id="hour-hand" transform="rotate(0 190 280)">
+        <line x1="190" y1="280" x2="155.4" y2="256.2" stroke="#2A241B" stroke-width="7" stroke-linecap="round"/>
+      </g>
+      <g id="minute-hand" transform="rotate(0 190 280)">
+        <line x1="190" y1="280" x2="241.8" y2="242.4" stroke="#2A241B" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g id="second-hand" transform="rotate(0 190 280)">
         <line x1="199" y1="264.4" x2="155" y2="340.6" stroke="#C4562A" stroke-width="2" stroke-linecap="round"/>
         <circle cx="199" cy="264.4" r="4" fill="#C4562A"/>
       </g>
@@ -317,6 +321,22 @@
     ];
     const half = items.map(t => "<span>" + t + "</span><span class='sep'>·</span>").join("");
     document.getElementById("track").innerHTML = half + half;
+
+    // live watch time — smooth mechanical sweep
+    const updateHands = () => {
+      const now = new Date();
+      const ms = now.getMilliseconds();
+      const s = now.getSeconds() + ms / 1000;
+      const m = now.getMinutes() + s / 60;
+      const h = (now.getHours() % 12) + m / 60;
+
+      document.getElementById("hour-hand").setAttribute("transform", `rotate(${h * 30} 190 280)`);
+      document.getElementById("minute-hand").setAttribute("transform", `rotate(${m * 6} 190 280)`);
+      document.getElementById("second-hand").setAttribute("transform", `rotate(${s * 6} 190 280)`);
+
+      requestAnimationFrame(updateHands);
+    };
+    updateHands();
   })();
 </script>
 
